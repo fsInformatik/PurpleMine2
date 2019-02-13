@@ -2,11 +2,11 @@
 
 A free Redmine theme for modern browsers.
 
-![The MIT License](https://img.shields.io/badge/license-MIT-584492.svg?style=flat-square) [![Release](https://img.shields.io/github/release/mrliptontea/PurpleMine2.svg?style=flat-square)](https://github.com/mrliptontea/PurpleMine2/releases) [![Issues](https://img.shields.io/github/issues/mrliptontea/PurpleMine2.svg?style=flat-square)](https://github.com/mrliptontea/PurpleMine2/issues) [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+![The MIT License](https://img.shields.io/badge/license-MIT-584492.svg) [![Build Status](https://travis-ci.org/mrliptontea/PurpleMine2.svg?branch=master)](https://travis-ci.org/mrliptontea/PurpleMine2) [![Issues](https://img.shields.io/github/issues/mrliptontea/PurpleMine2.svg)](https://github.com/mrliptontea/PurpleMine2/issues) [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ---
 
-![Screenshot](https://github.com/mrliptontea/PurpleMine2/raw/master/screenshots/issues-list.png)
+![Screenshot](https://github.com/mrliptontea/PurpleMine2/raw/master/screenshots/issues.png)
 
 Compatible with Redmine 2.6+ and browsers: IE10+/Edge, latest Firefox and Google Chrome (others were not tested).
 
@@ -38,21 +38,17 @@ Also, [Redmine Time Tracker][redmine_time_tracker] and [Redmine People][redmine_
 
 If you want to customize PurpleMine to your needs, first, make sure that you have installed [node.js](http://nodejs.org/) and `npm` is available in your terminal.
 
-If haven't yet, you need to install grunt:
-
-    npm install grunt-cli -g
-
 Then, from the directory that contains PurpleMine run:
 
     npm install
 
 Now all the dependencies should be ready to use. Run one more command:
 
-    grunt watch
+    npm run watch
 
-And now the grunt is watching for changes in files placed in `src/` folder. Just change what you need, and it'll run SASS preprocessor automatically.
+And now the grunt is watching for changes in files placed in `src/` folder. Just change what you need, and it'll run Sass preprocessor automatically.
 
-Regrettably, optional file include is not possible in SASS, so I would recommend creating a new file, e.g. `src/sass/_custom-variables.scss` and importing it a the beginning of the `application.scss` file. That way all the variables with the `!default` flag could be overridden.
+Regrettably, optional file include is not possible in Sass, so I would recommend creating a new file, e.g. `src/sass/_custom-variables.scss` and importing it a the beginning of the `application.scss` file. That way all the variables with the `!default` flag could be overridden.
 
 The path `src/sass/_custom-variables.scss` is added to `.gitignore` so it should make upgrading PurpleMine with keeping your changes rather painless, given that the only thing you changed in PurpleMine's source was adding this one line with `@import "custom-variables";`.
 
@@ -67,6 +63,18 @@ Latest (master):
 * Support for responsive menu and further changes for Redmine 3.3.2.devel (fixes #26)
 * Improved styles for custom flash messages in wiki content (e.g. for [WikiNG](http://www.redmine.org/plugins/wiking) plugin)
 * Introduce project tiles on projects list page (enabled by default, can be switched off by setting `$use-project-tiles` to `false`)
+* Fixed #44: adjust width of the label column on the login form
+* Merged #49: German translations
+* Fixed #50: printed content on second page onwards was missing in Firefox
+* Fixed #51: a plugin dropdown in top menu could be too narrow
+* Fixed #52: delete watcher icon in the sidebar was missing
+* Fixed #54: long checkbox lists will be scrollable
+* Fixed #62: anchors won't scroll the page
+* Fixed #69: fixed "remember me" checkbox layout on login page
+* Fixed #78: files not visible on list in wiki when there is a lot of them
+* Updated dependencies
+* Fixed #81: top watchers checkboxes were not visible on Firefox
+* Removed `checkbox` and `radio` mixins in favour of `check`
 
 v1.8.0 (2016-11-20):
 
