@@ -2,13 +2,12 @@
 // Login form
 // --------------------------------------------------
 
-$login-form-width:              300px;
-
 #login-form {
+  box-sizing: border-box;
   margin: $line-height-computed * 2 auto;
 
   label,
-  input {
+  input:not([type="checkbox"]) {
     width: 100%;
   }
 
@@ -16,6 +15,11 @@ $login-form-width:              300px;
     display: block;
     margin-bottom: $padding-base-vertical;
     font-weight: $font-weight-bold;
+
+    &[for="autologin"] {
+      @include check;
+      margin-bottom: $line-height-computed;
+    }
 
     > a {
       float: right;
@@ -37,7 +41,7 @@ $login-form-width:              300px;
     padding: 0;
 
     &:first-child {
-      width: floor($login-form-width / 4);
+      width: $login-form-label-width;
       padding-right: $table-cell-padding;
       white-space: nowrap;
     }
@@ -52,17 +56,25 @@ $login-form-width:              300px;
     }
   }
 
-  @media screen and (min-width: $screen-xs-min) {
+  @media screen and (min-width: $login-form-box-breakpoint) {
     width: $login-form-width;
     padding: $padding-side;
     border: 1px solid $panel-border;
     border-radius: $border-radius-base;
     background-color: $panel-bg;
-    color: $panel-color;
     box-shadow: $panel-shadow;
+    color: $panel-color;
 
     table {
       width: 100%;
+    }
+  }
+
+  @each $adjustment, $languages in $login-form-adjustments-map {
+    @each $language in $languages {
+      html[lang="#{$language}"] & td:first-child {
+        width: $login-form-label-width + $adjustment * 1em;
+      }
     }
   }
 }

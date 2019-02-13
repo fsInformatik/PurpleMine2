@@ -34,8 +34,8 @@
           height: $responsive-header-height;
           padding: 0 0 0 ($padding-base-horizontal + 30px);
           background-color: transparent;
-          line-height: $responsive-header-height;
           box-shadow: none;
+          line-height: $responsive-header-height;
 
           &::before {
             padding-left: $padding-base-horizontal;
@@ -138,10 +138,8 @@
     }
 
     .splitcontentleft {
-      margin-bottom: $line-height-computed;
       padding-right: 0;
       float: none;
-
     }
 
     .splitcontentright {
@@ -190,6 +188,21 @@
             padding-left: 20px + $btn-padding-horizontal;
           }
         }
+      }
+    }
+
+    // For Redmine 3.4+
+    #my-page {
+      #list-left {
+        width: 100%;
+        padding-right: 0;
+        float: none;
+      }
+
+      #list-right {
+        width: 100%;
+        padding-left: 0;
+        float: none;
       }
     }
   }
